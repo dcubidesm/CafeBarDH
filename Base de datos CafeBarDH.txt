@@ -1,0 +1,51 @@
+CREATE DATABASE IF NOT EXISTS `Cafe_Bar_DH`
+USE cafe_bar_dh;
+
+
+CREATE TABLE IF NOT EXISTS `producto` (
+	`id_producto_PK` INT(15) NOT NULL,
+	`nombre_producto` VARCHAR(100) DEFAULT NULL,
+	`cantidad_producto` INT(50) DEFAULT NULL,
+	`valor unitario` INT(50) NULL DEFAULT NULL,
+	`valor_total` INT(50) DEFAULT NULL,
+	`tipo_producto` VARCHAR(100) DEFAULT NULL,
+  	PRIMARY KEY (`id_producto_PK`)
+	) ENGINE=InnoDB DEFAULT CHARSET=LATIN1;
+
+CREATE TABLE IF NOT EXISTS `usuario` (
+	`username_PK` VARCHAR(100) NOT NULL,
+	`contrasena` VARCHAR(100) DEFAULT NULL,
+	`cedula` VARCHAR(10) DEFAULT NULL,
+	`nombre` VARCHAR(100) DEFAULT NULL,
+	`apellido` VARCHAR(100) DEFAULT NULL,
+	`email` VARCHAR(100) DEFAULT NULL,
+	`telefono` VARCHAR(10) DEFAULT NULL,
+	`saldo` DOUBLE(22,2) DEFAULT NULL,
+	`premium` TINYINT(4) DEFAULT NULL,
+  	PRIMARY KEY (`username_PK`)
+	) ENGINE=InnoDB DEFAULT CHARSET=LATIN1;
+
+INSERT INTO `producto` (`id_producto_PK`, `nombre_producto`, `cantidad_producto`, `valor unitario`, `valor_total`, `tipo_producto`) VALUES
+('1','cafe con leche',1,2200,2200,'bebida_fria'),
+('2','cafe con baileys',3,3500,10500,'bebida_fria'),
+('3','cerveza power',6,2500,15000,'bebida_fria'),
+('4','chocolate con masmelos',2,5000,10000,'bebida_caliente'),
+('5','agua aromatica de frutas',5,3000,15000,'bebida_caliente'),
+('6','leche caliente',1,2300,2300,'bebida_caliente'),
+('7','aguardiente',1,20000,20000,'bebida_fria'),
+('8','ron caldas',2,28000,56000,'bebida_fria'),
+('9','absolut vodka',3,110000,330000,'bebida_fria'),
+('10','chocolisto',2,3500,7000,'bebida_caliente')
+
+
+INSERT INTO `usuario` (`username_PK`, `contrasena`, `cedula`, `nombre`, `apellido`, `email`, `telefono`, `saldo`, `premium`) VALUES
+('Sandra45','g3m95na*+',1032695694,'Sandra','Gomez','sandrag09@hotmail.com',3168956325,5000.01,1),
+('Alejo123','ncysin393',52698756,'Alejandro','Suarez','aledro68@hotmail.com',3112536987,70000.03,1),
+('Arevalo3669','fhoef87219','Juan','Arevalo','Sanchez','arevalo35@hotmail.com',3206985232,0.05,0),
+('Tabaro489','mieubce8262619',796542358,'Oscar','Tabaro','oscartaba01@gmail.com',3158965232,50000.09,1),
+('Jonathanlo09','jfeuefb8672*.',1022984657,'Jonathan David','Cubillos','cubiui609@gmail.com',3226354368,1000.05,1),
+('Bonillaviviana36','dcnusaon86262#',72569874,'Viviana','Bonilla','vivilla98@hotmail.com',3148571232,200.01,1),
+('Elvia98','de#dicuas13',69452112,'Elvia Julieth','Triana Alvarez','Etriana02@yahoo.com',3256598457,3000.04,0),
+('Eduardo36','Ksjshs)*',1011598397,'Eduardo','Garcia Montes','montesedu@yahoo.com',3206985421,200.25,1),
+('Mario369','Lpo02863+',5369874,'Mario Andres','Canaval Vega','cani76@hotmail.com',3136985132,65000.05,0),
+('AndreafORE89','sdkdhidb908=.',269876214,'Andrea Maria','Bello Forero','sandrag09@gmail.com',3126951220,5000.01,0)
