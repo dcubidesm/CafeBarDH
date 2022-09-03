@@ -44,6 +44,18 @@ CREATE TABLE IF NOT EXISTS `reserva` (
   CONSTRAINT `FK__producto` FOREIGN KEY (`id_producto_PK`) REFERENCES `producto` (`id_producto_PK`)
 ) ENGINE=InnoDB DEFAULT CHARSET=LATIN1;
 
+INSERT INTO `producto` (`id_producto_PK`, `nombre_producto`, `cantidad_producto`, `valor unitario`, `valor_total`, `tipo_producto`) VALUES
+('1','cafe con leche',1,2200,2200,'bebida_fria'),
+('2','cafe con baileys',3,3500,10500,'bebida_fria'),
+('3','cerveza power',6,2500,15000,'bebida_fria'),
+('4','chocolate con masmelos',2,5000,10000,'bebida_caliente'),
+('5','agua aromatica de frutas',5,3000,15000,'bebida_caliente'),
+('6','leche caliente',1,2300,2300,'bebida_caliente'),
+('7','aguardiente',1,20000,20000,'bebida_fria'),
+('8','ron caldas',2,28000,56000,'bebida_fria'),
+('9','absolut vodka',3,110000,330000,'bebida_fria'),
+('10','chocolisto',2,3500,7000,'bebida_caliente')
+
 INSERT INTO `usuario` (`username_PK`, `contrasena`, `cedula`, `nombre`, `apellido`, `email`, `telefono`, `saldo`, `premium`) VALUES
 ('Sandra45','g3m95na',103269569,'Sandra','Gomez','sandrag09@hotmail.com',3168956320,5000,1),
 ('Alejo123','ncysin393',526987560,'Alejandro','Suarez','aledro68@hotmail.com',3112536980,7000,2),
