@@ -67,3 +67,8 @@ INSERT INTO `usuario` (`username_PK`, `contrasena`, `cedula`, `nombre`, `apellid
 ('Eduardo36','Ksjshs)*',1011598397,'Eduardo','Garcia Montes','montesedu@yahoo.com',3206985420,200,1),
 ('Mario369','Lpo02863+',5369874,'Mario Andres','Canaval Vega','cani76@hotmail.com',3136985130,6500,0),
 ('AndreafORE89','sdkdhidb908=.',269876214,'Andrea Maria','Bello Forero','sandrag09@gmail.com',3126951220,5000,0)
+
+INSERT INTO `reserva` (`id_mesa_PK`, `fecha`, `metodo_pago`, `cantidad_personas`, `username_PK`, `id_producto_PK`) VALUES
+('1','2022-08-01','Efectivo',4,'Alejo123',9),
+('1','2022-08-01','Efectivo',4,'Alejo123',8),
+('1','2022-08-01','Efectivo',4,'Alejo123',3)
