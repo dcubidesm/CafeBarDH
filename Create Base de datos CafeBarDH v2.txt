@@ -72,3 +72,10 @@ INSERT INTO `reserva` (`id_mesa_PK`, `fecha`, `metodo_pago`, `cantidad_personas`
 ('1','2022-08-01','Efectivo',4,'Alejo123',9),
 ('1','2022-08-01','Efectivo',4,'Alejo123',8),
 ('1','2022-08-01','Efectivo',4,'Alejo123',3)
+
+Ejemplo de como saber cuanto ddebe una persona
+
+SELECT sum(cantidad_producto * valor_unitario), username_PK, id_mesa_PK
+FROM producto, reserva
+WHERE username_PK = "Alejo123" AND id_mesa_PK = 1
+
