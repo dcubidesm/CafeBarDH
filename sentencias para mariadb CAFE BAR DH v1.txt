@@ -78,7 +78,7 @@ FROM usuario
 JOIN reserva
 ON usuario.id_usuario = reserva.id_usuario
 
-JOIN productos
+JOIN producto
 ON reserva.id_producto = producto.id_producto
 GROUP BY id_usuario
 ORDER BY id_usuario asc
