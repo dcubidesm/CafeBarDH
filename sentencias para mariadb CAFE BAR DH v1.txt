@@ -1,0 +1,83 @@
+CREATE DATABASE if NOT EXISTS cafe_bar_dh
+
+USE cafe_bar_dh;
+CREATE TABLE if NOT EXISTS productos (
+id_producto VARCHAR (100) NOT NULL,
+producto VARCHAR (100) DEFAULT NULL,
+valor INT (11) DEFAULT NULL,
+cantidad INT (11) DEFAULT NULL,
+id_mesa VARCHAR (100) DEFAULT NULL,
+total INT (11) DEFAULT NULL,
+PRIMARY KEY (id_producto)
+)engine=INNODB default charset=latin1;
+
+
+USE cafe_bar_dh;
+CREATE TABLE if NOT EXISTS usuarios (
+id_usuario VARCHAR (100) NOT NULL,
+nombre VARCHAR (100) DEFAULT NULL,
+apellido VARCHAR (100) DEFAULT NULL,
+cedula INT (11) DEFAULT NULL,
+celular VARCHAR (100) DEFAULT NULL,
+email VARCHAR (100) DEFAULT NULL,
+user_name VARCHAR (100) DEFAULT NULL,
+password VARCHAR (100) DEFAULT NULL,
+PRIMARY KEY (id_usuario)
+)engine=INNODB default charset=latin1;
+
+
+USE cafe_bar_dh;
+CREATE TABLE IF NOT EXISTS reserva(	
+id_usuario VARCHAR (100) NOT NULL,
+id_mesa VARCHAR(100) NOT NULL,
+fecha DATETIME NOT NULL,
+PRIMARY KEY (id_usuario,id_mesa,fecha) USING BTREE,
+KEY FK_productos(id_mesa),
+CONSTRAINT FK_usuarios FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
+)engine=InnoDB default charset=latin1;
+
+
+
+
+INSERT INTO productos (id_producto, producto, valor, cantidad, id_mesa, total) VALUES
+(1, "cerveza club dorada",5000, 4, 1,20000),
+(2, "cerveza club roja",5000, 4, 2,20000),
+(3, "cerveza club negra",5000, 4, 3,20000),
+(4, "cerveza estella",10000, 4, 4,40000),
+(5,"americano",3500, 4, 5,14000),
+(6,"capuchino",5500, 4, 6, 22000),
+(7, "botella tequila",100000, 1, 7, 10000),
+(8, "botella aguardiente",80000, 1, 8, 80000),
+(9, "botella whisky",150000, 1, 9, 150000), 
+(10, "botella vodka",90000, 1, 10, 90000);
+
+
+INSERT INTO usuarios (id_usuario, nombre, apellido, cedula, celular, email,user_name,password) VALUES
+(1,'Sandra','Gomez',1032695694,3168956325,'sandrag09@hotmail.com','Sandra45','g3m95na*+'),
+(2,'Alejandro','Suarez',52698756,3112536987,'aledro68@hotmail.com','Alejo123','ncysin393'),
+(3,'Arevalo','Sanchez',12346587,3206985232,'arevalo35@hotmail.com','Arevalo3669','fhoef87219'),
+(4,'Oscar','Tabaro',796542358,3158965232,'oscartaba01@gmail.com','Tabaro489','mieubce8262619'),
+(5,'Jonathan David','Cubillos',1022984657,3226354368,'cubiui609@gmail.com','Jonathanlo09','jfeuefb8672*.'),
+(6,'Viviana','Bonilla',72569874,3148571232,'vivilla98@hotmail.com','Bonillaviviana36','dcnusaon86262#'),
+(7,'Elvia Julieth','Triana Alvarez',69452112,3256598457,'Etriana02@yahoo.com','Elvia98','de#dicuas13'),
+(8,'Eduardo','Garcia Montes',1011598397,3206985421,'montesedu@yahoo.com','Eduardo36','Ksjshs*'),
+(9,'Mario Andres','Canaval Vega',5369874,3136985132,'cani76@hotmail.com','Mario369','Lpo02863+'),
+(10,'Andrea Maria','Bello Forero',269876214,3126951220,'sandrag09@gmail.com','AndreafORE89','sdkdhidb908=.')
+
+
+INSERT INTO reserva (id_usuario, id_mesa, fecha) VALUES
+(1,2,'2022-09-21'),
+(2,4,'2022-08-11'),
+(3,3,'2022-07-31'),
+(4,5,'2022-06-21'),
+(5,7,'2022-08-01'),
+(6,8,'2022-05-11'),
+(7,10,'2022-08-11'),
+(8,1,'2022-07-31'),
+(9,2,'2022-08-21'),
+(10,3,'2022-03-11')
+
+
+SELECT * FROM reserva
+SELECT * FROM productos
+SELECT * FROM usuarios
