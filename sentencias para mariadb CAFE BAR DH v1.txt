@@ -1,7 +1,7 @@
 CREATE DATABASE if NOT EXISTS cafe_bar_dh
 
 USE cafe_bar_dh;
-CREATE TABLE if NOT EXISTS productos (
+CREATE TABLE if NOT EXISTS producto (
 id_producto VARCHAR (100) NOT NULL,
 producto VARCHAR (100) DEFAULT NULL,
 valor INT (11) DEFAULT NULL,
@@ -11,7 +11,7 @@ PRIMARY KEY (id_producto)
 
 
 USE cafe_bar_dh;
-CREATE TABLE if NOT EXISTS usuarios (
+CREATE TABLE if NOT EXISTS usuario (
 id_usuario VARCHAR (100) NOT NULL,
 nombre VARCHAR (100) DEFAULT NULL,
 apellido VARCHAR (100) DEFAULT NULL,
@@ -25,18 +25,18 @@ PRIMARY KEY (id_usuario)
 
 
 USE cafe_bar_dh;
-CREATE TABLE IF NOT EXISTS reservas(	
+CREATE TABLE IF NOT EXISTS reserva(	
 id_mesa VARCHAR(100) NOT NULL,
 id_usuario VARCHAR (100) NOT NULL,
 id_producto VARCHAR (100) NOT NULL,
 fecha DATETIME NOT NULL,
 PRIMARY KEY (id_usuario,id_mesa,fecha) USING BTREE,
-KEY FK_productos(id_mesa),
-CONSTRAINT FK_productos FOREIGN KEY (id_producto) REFERENCES productos(id_producto)
-CONSTRAINT FK_usuarios FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
+KEY FK_producto(id_mesa),
+CONSTRAINT FK_producto FOREIGN KEY (id_producto) REFERENCES productos(id_producto)
+CONSTRAINT FK_usuario FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
 )engine=InnoDB default charset=latin1;
 
-INSERT INTO usuarios (id_usuario, nombre, apellido, cedula, celular, email,user_name,password) VALUES
+INSERT INTO usuario (id_usuario, nombre, apellido, cedula, celular, email,user_name,password) VALUES
 (1,'Sandra','Gomez',1032695694,3168956325,'sandrag09@hotmail.com','Sandra45','g3m95na*+'),
 (2,'Alejandro','Suarez',52698756,3112536987,'aledro68@hotmail.com','Alejo123','ncysin393'),
 (3,'Arevalo','Sanchez',12346587,3206985232,'arevalo35@hotmail.com','Arevalo3669','fhoef87219'),
@@ -49,7 +49,7 @@ INSERT INTO usuarios (id_usuario, nombre, apellido, cedula, celular, email,user_
 (10,'Andrea Maria','Bello Forero',269876214,3126951220,'sandrag09@gmail.com','AndreafORE89','sdkdhidb908=.')
 
 
-INSERT INTO reservas (id_usuario, id_mesa, id_productofecha) VALUES
+INSERT INTO reserva (id_usuario, id_mesa, id_productofecha) VALUES
 (1,2,1,'2022-09-21'),
 (2,4,2,'2022-08-11'),
 (3,3,2,'2022-07-31'),
@@ -61,7 +61,7 @@ INSERT INTO reservas (id_usuario, id_mesa, id_productofecha) VALUES
 (9,2,8,'2022-08-21'),
 (10,3,8,'2022-03-11')
 
-INSERT INTO productos (id_producto, producto, valor, cantidad) VALUES
+INSERT INTO producto (id_producto, producto, valor, cantidad) VALUES
 (2, "cerveza club roja",5000, 4),
 (3, "cerveza club negra",5000, 4),
 (4, "cerveza estella",10000, 4),
@@ -73,12 +73,12 @@ INSERT INTO productos (id_producto, producto, valor, cantidad) VALUES
 (10, "botella vodka",90000, 1)
 
 
-SELECT usuarios.id_usuario, reservas.id_mesa,productos.id_producto, valor, cantidad, sum(valor*cantidad) AS valortotal
-FROM usuarios
-JOIN reservas
-ON usuarios.id_usuario = reservas.id_usuario
+SELECT usuario.id_usuario, reserva.id_mesa,producto.id_producto, valor, cantidad, sum(valor*cantidad) AS valortotal
+FROM usuario
+JOIN reserva
+ON usuario.id_usuario = reserva.id_usuario
 
 JOIN productos
-ON reservas.id_producto = productos.id_producto
+ON reserva.id_producto = producto.id_producto
 GROUP BY id_usuario
 ORDER BY id_usuario asc
