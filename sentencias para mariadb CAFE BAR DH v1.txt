@@ -75,6 +75,17 @@ INSERT INTO reservas (id_usuario, id_mesa, fecha) VALUES
 (9,2,'2022-08-21'),
 (10,3,'2022-03-11')
 
+INSERT INTO productos (id_producto, producto, valor, cantidad, id_mesa, total) VALUES
+(2, "cerveza club roja",5000, 4, 2,20000),
+(3, "cerveza club negra",5000, 4, 3,20000),
+(4, "cerveza estella",10000, 4, 4,40000),
+(5,"americano",3500, 4, 5,14000),
+(6,"capuchino",5500, 4, 4, 22000),
+(7, "botella tequila",100000, 1, 7, 10000),
+(8, "botella aguardiente",80000, 1, 8, 80000),
+(9, "botella whisky",150000, 1, 8, 150000), 
+(10, "botella vodka",90000, 1, 10, 90000)
+
 
 SELECT * FROM reserva
 SELECT * FROM productos
