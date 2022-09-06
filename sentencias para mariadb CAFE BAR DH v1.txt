@@ -31,8 +31,8 @@ id_usuario VARCHAR (100) NOT NULL,
 id_producto VARCHAR (100) NOT NULL,
 fecha DATETIME NOT NULL,
 PRIMARY KEY (id_usuario,id_mesa,fecha) USING BTREE,
-KEY FK_producto(id_mesa),
-CONSTRAINT FK_producto FOREIGN KEY (id_producto) REFERENCES producto(id_producto)
+KEY FK_mesa(id_mesa),
+CONSTRAINT FK_producto FOREIGN KEY (id_producto) REFERENCES producto(id_producto),
 CONSTRAINT FK_usuario FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
 )engine=InnoDB default charset=latin1;
 
