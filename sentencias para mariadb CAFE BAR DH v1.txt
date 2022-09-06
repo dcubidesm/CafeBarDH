@@ -73,11 +73,10 @@ INSERT INTO producto (id_producto, producto, valor, cantidad) VALUES
 (10, "botella vodka",90000, 1)
 
 
-SELECT usuario.id_usuario, reserva.id_mesa,producto.id_producto, valor, cantidad, sum(valor*cantidad) AS valortotal
+SELECT usuario.id_usuario, reserva.id_mesa,producto.id_producto, valor, cantidad, fecha, sum(valor*cantidad) AS valortotal
 FROM usuario
 JOIN reserva
 ON usuario.id_usuario = reserva.id_usuario
-
 JOIN producto
 ON reserva.id_producto = producto.id_producto
 GROUP BY id_usuario
