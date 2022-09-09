@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS reserva(
 id_mesa VARCHAR(100) NOT NULL,
 id_usuario VARCHAR (100) NOT NULL,
 id_producto VARCHAR (100) NOT NULL,
-fecha DATETIME NOT NULL,
+fecha VARCHAR (100) NOT NULL,
 PRIMARY KEY (id_usuario,id_mesa,fecha) USING BTREE,
 KEY FK_usuario(id_mesa),
 CONSTRAINT FK_producto FOREIGN KEY (id_producto) REFERENCES producto(id_producto),
@@ -50,16 +50,15 @@ INSERT INTO usuario (id_usuario, nombre, apellido, cedula, celular, email,user_n
 
 
 INSERT INTO reserva (id_usuario, id_mesa, id_producto,fecha) VALUES
-(1,2,2,'2022-09-21 00:00:06'),
-(2,4,2,'2022-08-11 00:00:05'),
-(3,3,2,'2022-07-31 00:00:05'),
-(4,5,3,'2022-06-21 00:00:04'),
-(5,7,3,'2022-08-01 00:00:03'),
-(6,8,4,'2022-05-11 00:00:01'),
-(7,10,5,'2022-08-11 00:00:02'),
-(8,1,7,'2022-07-31 00:00:07'),
-(9,2,8,'2022-08-21 00:00:08'),
-(10,3,8,'2022-03-11 00:00:09')
+(1,2,2,'2022-09-21'),
+(2,4,2,'2022-08-11'),
+(4,5,3,'2022-06-21'),
+(5,7,3,'2022-08-01'),
+(6,8,4,'2022-05-11'),
+(7,10,5,'2022-08-11'),
+(8,1,7,'2022-07-31'),
+(9,2,8,'2022-08-21'),
+(10,3,8,'2022-03-11')
 
 INSERT INTO producto (id_producto, producto, valor, cantidad) VALUES
 (2, "cerveza club roja",5000, 4),
