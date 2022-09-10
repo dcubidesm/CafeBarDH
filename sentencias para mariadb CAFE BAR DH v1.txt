@@ -71,6 +71,7 @@ INSERT INTO producto (id_producto, producto, valor, cantidad) VALUES
 (9, "botella whisky",150000, 1), 
 (10, "botella vodka",90000, 1)
 
+Pruebas en la BD
 
 SELECT usuario.id_usuario, reserva.id_mesa,producto.id_producto, valor, cantidad, fecha, sum(valor*cantidad) AS valortotal
 FROM usuario
@@ -79,4 +80,37 @@ ON usuario.id_usuario = reserva.id_usuario
 JOIN producto
 ON reserva.id_producto = producto.id_producto
 GROUP BY id_usuario
+ORDER BY id_usuario asc
+
+Prueba de buscar por usuario
+
+SELECT usuario.id_usuario, reserva.id_mesa,producto.id_producto, valor, cantidad, fecha, sum(valor*cantidad) AS valortotal
+FROM usuario
+JOIN reserva
+ON usuario.id_usuario = reserva.id_usuario
+JOIN producto
+ON reserva.id_producto = producto.id_producto
+WHERE usuario.id_usuario = 9
+ORDER BY id_usuario asc
+
+consultar por mesa
+
+SELECT usuario.id_usuario, reserva.id_mesa,producto.id_producto, valor, cantidad, fecha, sum(valor*cantidad) AS valortotal
+FROM usuario
+JOIN reserva
+ON usuario.id_usuario = reserva.id_usuario
+JOIN producto
+ON reserva.id_producto = producto.id_producto
+WHERE reserva.id_mesa = 2
+ORDER BY id_usuario asc
+
+consulta por producto
+
+SELECT usuario.id_usuario, reserva.id_mesa,producto.id_producto, valor, cantidad, fecha, (valor*cantidad) AS valortotal
+FROM usuario
+JOIN reserva
+ON usuario.id_usuario = reserva.id_usuario
+JOIN producto
+ON reserva.id_producto = producto.id_producto
+WHERE reserva.id_producto = 8
 ORDER BY id_usuario asc
