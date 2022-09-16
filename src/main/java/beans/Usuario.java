@@ -3,32 +3,30 @@ package beans;
 
 
 public class Usuario {
-    private String id_usuario;
+    private String username;
     private String nombre;
     private String apellido; 
     private int cedula;
     private String celular;
     private String email;
-    private String user_name;
     private String password;
 
-    public Usuario(String id_usuario, String nombre, String apellido, int cedula, String celular, String email, String user_name, String password) {
-        this.id_usuario = id_usuario;
+    public Usuario(String username, String nombre, String apellido, int cedula, String celular, String email, String password) {
+        this.username = username;
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
         this.celular = celular;
         this.email = email;
-        this.user_name = user_name;
         this.password = password;
     }
 
-    public String getId_usuario() {
-        return id_usuario;
+    public String getUsername() {
+        return username;
     }
 
-    public void setId_usuario(String id_usuario) {
-        this.id_usuario = id_usuario;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getNombre() {
@@ -71,14 +69,6 @@ public class Usuario {
         this.email = email;
     }
 
-    public String getUser_name() {
-        return user_name;
-    }
-
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -89,8 +79,10 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "id_usuario=" + id_usuario + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", celular=" + celular + ", email=" + email + ", user_name=" + user_name + ", password=" + password + '}';
+        return "Usuario{" + "username=" + username + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", celular=" + celular + ", email=" + email + ", password=" + password + '}';
     }
-    
-    
+
+
+
+
 }
