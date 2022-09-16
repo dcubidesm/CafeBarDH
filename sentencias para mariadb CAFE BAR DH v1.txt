@@ -12,53 +12,52 @@ PRIMARY KEY (id_producto)
 
 USE cafe_bar_dh;
 CREATE TABLE if NOT EXISTS usuario (
-id_usuario VARCHAR (100) NOT NULL,
+username VARCHAR (100) NOT NULL,
 nombre VARCHAR (100) DEFAULT NULL,
 apellido VARCHAR (100) DEFAULT NULL,
 cedula INT (11) DEFAULT NULL,
 celular VARCHAR (100) DEFAULT NULL,
 email VARCHAR (100) DEFAULT NULL,
-user_name VARCHAR (100) DEFAULT NULL,
 password VARCHAR (100) DEFAULT NULL,
-PRIMARY KEY (id_usuario)
+PRIMARY KEY (username)
 )engine=INNODB default charset=latin1;
 
 
 USE cafe_bar_dh;
 CREATE TABLE IF NOT EXISTS reserva(	
 id_mesa VARCHAR(100) NOT NULL,
-id_usuario VARCHAR (100) NOT NULL,
+username VARCHAR (100) NOT NULL,
 id_producto VARCHAR (100) NOT NULL,
-fecha VARCHAR (100) NOT NULL,
-PRIMARY KEY (id_usuario,id_mesa,fecha) USING BTREE,
+fecha DATETIME NOT NULL,
+PRIMARY KEY (username,id_mesa,fecha) USING BTREE,
 KEY FK_usuario(id_mesa),
 CONSTRAINT FK_producto FOREIGN KEY (id_producto) REFERENCES producto(id_producto),
-CONSTRAINT FK_usuario FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
+CONSTRAINT FK_usuario FOREIGN KEY (username) REFERENCES usuario(username)
 )engine=InnoDB default charset=latin1;
 
-INSERT INTO usuario (id_usuario, nombre, apellido, cedula, celular, email,user_name,password) VALUES
-(1,'Sandra','Gomez',1032695694,3168956325,'sandrag09@hotmail.com','Sandra45','g3m95na*+'),
-(2,'Alejandro','Suarez',52698756,3112536987,'aledro68@hotmail.com','Alejo123','ncysin393'),
-(3,'Arevalo','Sanchez',12346587,3206985232,'arevalo35@hotmail.com','Arevalo3669','fhoef87219'),
-(4,'Oscar','Tabaro',796542358,3158965232,'oscartaba01@gmail.com','Tabaro489','mieubce8262619'),
-(5,'Jonathan David','Cubillos',1022984657,3226354368,'cubiui609@gmail.com','Jonathanlo09','jfeuefb8672*.'),
-(6,'Viviana','Bonilla',72569874,3148571232,'vivilla98@hotmail.com','Bonillaviviana36','dcnusaon86262#'),
-(7,'Elvia Julieth','Triana Alvarez',69452112,3256598457,'Etriana02@yahoo.com','Elvia98','de#dicuas13'),
-(8,'Eduardo','Garcia Montes',1011598397,3206985421,'montesedu@yahoo.com','Eduardo36','Ksjshs*'),
-(9,'Mario Andres','Canaval Vega',5369874,3136985132,'cani76@hotmail.com','Mario369','Lpo02863+'),
-(10,'Andrea Maria','Bello Forero',269876214,3126951220,'sandrag09@gmail.com','AndreafORE89','sdkdhidb908=.')
+INSERT INTO usuario (username, nombre, apellido, cedula, celular, email, password) VALUES
+('Sandra45','Sandra','Gomez',1032695694,3168956325,'sandrag09@hotmail.com','g3m95na*+'),
+('Alejo123','Alejandro','Suarez',52698756,3112536987,'aledro68@hotmail.com','ncysin393'),
+('Arevalo3669','Arevalo','Sanchez',12346587,3206985232,'arevalo35@hotmail.com','fhoef87219'),
+('Tabaro489','Oscar','Tabaro',796542358,3158965232,'oscartaba01@gmail.com','mieubce8262619'),
+('Jonathanlo09','Jonathan David','Cubillos',1022984657,3226354368,'cubiui609@gmail.com','jfeuefb8672*.'),
+('Bonillaviviana36','Viviana','Bonilla',72569874,3148571232,'vivilla98@hotmail.com','dcnusaon86262#'),
+('Elvia98','Elvia Julieth','Triana Alvarez',69452112,3256598457,'Etriana02@yahoo.com','de#dicuas13'),
+('Eduardo36','Eduardo','Garcia Montes',1011598397,3206985421,'montesedu@yahoo.com','Ksjshs*'),
+('Mario369','Mario Andres','Canaval Vega',5369874,3136985132,'cani76@hotmail.com','Lpo02863+'),
+('AndreafORE89','Andrea Maria','Bello Forero',269876214,3126951220,'sandrag09@gmail.com','sdkdhidb908=.')
 
-
-INSERT INTO reserva (id_usuario, id_mesa, id_producto,fecha) VALUES
-(1,2,2,'2022-09-21'),
-(2,4,2,'2022-08-11'),
-(4,5,3,'2022-06-21'),
-(5,7,3,'2022-08-01'),
-(6,8,4,'2022-05-11'),
-(7,10,5,'2022-08-11'),
-(8,1,7,'2022-07-31'),
-(9,2,8,'2022-08-21'),
-(10,3,8,'2022-03-11')
+INSERT INTO reserva (id_mesa, username, id_producto,fecha) VALUES
+(1,'Sandra45',2,'2022-09-21 00:00:06'),
+(2,'Alejo123',2,'2022-08-11 00:00:05'),
+(3,'Arevalo3669',2,'2022-07-31 00:00:05'),
+(4,'Tabaro489',3,'2022-06-21 00:00:04'),
+(5,'Arevalo3669',3,'2022-08-01 00:00:03'),
+(6,'Tabaro489',4,'2022-05-11 00:00:01'),
+(7,'Jonathanlo09',5,'2022-08-11 00:00:02'),
+(8,'Sandra45',7,'2022-07-31 00:00:07'),
+(9,'Elvia98',8,'2022-08-21 00:00:08'),
+(10,'AndreafORE89',8,'2022-03-11 00:00:09')
 
 INSERT INTO producto (id_producto, producto, valor, cantidad) VALUES
 (2, "cerveza club roja",5000, 4),
