@@ -1,4 +1,5 @@
 
+
 package beans;
 import java.sql.Date;
 
@@ -6,9 +7,9 @@ public class Reserva {
     private String id_mesa;
     private String id_usuario;
     private String id_producto;
-    private Date fecha;
+    private String fecha;
 
-    public Reserva(String id_mesa, String id_usuario, String id_producto, Date fecha) {
+    public Reserva(String id_mesa, String id_usuario, String id_producto, String fecha) {
         this.id_mesa = id_mesa;
         this.id_usuario = id_usuario;
         this.id_producto = id_producto;
@@ -39,11 +40,11 @@ public class Reserva {
         this.id_producto = id_producto;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
