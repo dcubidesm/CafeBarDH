@@ -4,21 +4,23 @@ package beans;
 
 public class Usuario {
     private String username;
+    private String contrasena;
     private String nombre;
     private String apellido; 
     private int cedula;
     private String celular;
     private String email;
-    private String password;
+    private double saldo;
 
-    public Usuario(String username, String nombre, String apellido, int cedula, String celular, String email, String password) {
+    public Usuario(String username, String contrasena, String nombre, String apellido, int cedula, String celular, String email, double saldo) {
         this.username = username;
+        this.contrasena = contrasena;
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
         this.celular = celular;
         this.email = email;
-        this.password = password;
+        this.saldo = saldo;
     }
 
     public String getUsername() {
@@ -27,6 +29,14 @@ public class Usuario {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     public String getNombre() {
@@ -69,20 +79,17 @@ public class Usuario {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public double getSaldo() {
+        return saldo;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
     }
 
     @Override
     public String toString() {
-        return "Usuario{" + "username=" + username + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", celular=" + celular + ", email=" + email + ", password=" + password + '}';
+        return "Usuario{" + "username=" + username + ", contrasena=" + contrasena + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", celular=" + celular + ", email=" + email + ", saldo=" + saldo + '}';
     }
-
-
-
 
 }
