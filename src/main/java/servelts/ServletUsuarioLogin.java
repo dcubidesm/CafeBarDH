@@ -40,9 +40,9 @@ public class ServletUsuarioLogin extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		UsuarioController usuario = new UsuarioController();
-		String user_name = request.getParameter("user_name");//Campo user_name del backenda base de datos
-		String password = request.getParameter("password");//Campo passsword del backenda base de datos
-		String result = usuario.login(user_name, password);
+		String username = request.getParameter("usuario");//Campo user_name del backenda base de datos
+		String contrasena = request.getParameter("contrasena");//Campo passsword del backenda base de datos
+		String result = usuario.login(username, contrasena);
 		
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
