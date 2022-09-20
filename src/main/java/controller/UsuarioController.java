@@ -11,27 +11,28 @@ import connection.DBConnection;
 public class UsuarioController implements IUsuarioController {
 
     @Override
-    public String login(String user_name, String password) {
+    public String login(String username, String contrasena) {
 
         Gson gson = new Gson();
 
         DBConnection con = new DBConnection();//DBConection.java, me hace la conexion a la BD.
         //Ejecuta correctamente si el username y contrseana estan correctos, de lo contrario sale de la codicion y queda False(linea 42).
-        String sql = "Select * from usuario where user_name = '" + user_name
-                + "' and password = '" + password + "'";//se debe cumplir las dos condiciones usuario y contraseña
+        String sql = "Select * from usuario where username = '" + username
+                + "' and contrasena = '" + contrasena + "'";//se debe cumplir las dos condiciones usuario y contraseña
         try {
             Statement st = con.getConnection().createStatement();
             ResultSet rs = st.executeQuery(sql);
 
             while (rs.next()) {
-                String id_usuario = rs.getString("id_usuario");
+             
                 String nombre = rs.getString("nombre");
                 String apellido = rs.getString("apellido"); 
                 int cedula = rs.getInt("cedula");
                 String celular = rs.getString("celular");
                 String email = rs.getString("email");
+                double saldo = rs.getDouble("saldo");
                
-                Usuario usuario = new Usuario(id_usuario, nombre,apellido,cedula,celular, email, user_name, password);
+                Usuario usuario = new Usuario(username,contrasena, nombre,apellido,cedula,celular, email,saldo);
                 return gson.toJson(usuario);
             }
         } catch (Exception ex) {
@@ -44,21 +45,21 @@ public class UsuarioController implements IUsuarioController {
 }
 
     @Override
-    public String register(String id_usuario, String nombre, String apellido, int cedula, String celular,
-            String email, String user_name, String password) {
+    public String register(String username,String contrasena, String nombre, String apellido, int cedula, String celular,
+            String email, Double saldo) {
 
         Gson gson = new Gson();
 
         DBConnection con = new DBConnection();//Conexion a la base de datos
         //Sentencia Insert mediante el formulario register.html
-        String sql = "Insert into usuario values('" + id_usuario + "', '" + nombre + "', '" + apellido
-                + "', '" + cedula + "', '" + celular + "', " + email + ", " + user_name + ", " + password + ")";
+        String sql = "Insert into usuario values('" + username + "', '" + contrasena + "', '" + nombre + "', '" + apellido
+                + "', '" + cedula + "', '" + celular + "', " + email +  ", " + saldo + ")";
 
         try {
             Statement st = con.getConnection().createStatement();
             st.executeUpdate(sql);
 
-            Usuario usuario = new Usuario(id_usuario, nombre, apellido, cedula, celular, email, user_name, password);
+            Usuario usuario = new Usuario(username, contrasena, nombre, apellido, cedula, celular, email,saldo);
 
             st.close();
 
