@@ -1,0 +1,91 @@
+package test;
+import beans.Mesa;
+import beans.Usuario;
+import beans.Alquiler;
+import connection.DBConnection;
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+
+public class OperacionesBD {
+    public static void main(String[] args) {
+        //insertarUsuario("andressalas","123456","Andres","Salas","12369845","31523698745","andsalas@gmail.com",5000);
+        actualizarMesa(7,"Amigos","12:30pm-2:00pm","10",1);
+        listaMesa();
+       }
+//CRUD DE TABLA MESAS
+public static void listaMesa(){
+     DBConnection con = new DBConnection();//Conexion a la base de datos
+     String sql = "SELECT * FROM mesa";//Consulta Select con tabla mesa
+    
+     try {
+        Statement st = con.getConnection().createStatement();
+        ResultSet rs = st.executeQuery(sql);
+        //El while trae los datos pero toca finalizarla* recorre cada campo de la tabla y se toma los campos creados en Productos.java 
+        //y trae los de la base de datos, debes ir en el mismo orden
+        while (rs.next()){
+        int id = rs.getInt("id");
+        String evento = rs.getString("evento");
+        String horario = rs.getString("horario");
+        String capacidad = rs.getString("capacidad");
+        int reserva = rs.getInt("reserva");
+        
+        Mesa mesas = new Mesa(id, evento, horario, capacidad, reserva );
+        System.out.println(mesas.toString());
+        }
+        st.executeQuery(sql);//* finaliza el While cuando termine de validar todos los campos
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        finally{
+            con.desconectar();
+        }
+    }
+
+
+public static void actualizarMesa(int id ,String evento,String horario, String capacidad, int reserva){
+    DBConnection con = new DBConnection();
+    String sql = "UPDATE mesa SET evento = '" + evento + "', horario = '" + horario + "', capacidad = '" + capacidad
+            + "', reserva = '" + reserva + "'WHERE id = " + id;
+    try {
+        Statement st = con.getConnection().createStatement();
+        st.executeUpdate(sql);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        finally{
+            con.desconectar();
+        }
+    
+    }
+
+
+
+public static void insertarUsuario(String username, String contrasena, String nombre, String apellido, String cedula, 
+        String celular, String email, double saldo) {
+        DBConnection con = new DBConnection();
+    String sql = "INSERT INTO usuario (username, contrasena, nombre, apellido, cedula, celular, email, saldo)"
+            + "VALUES( '" + username + "','" + contrasena + "','" + nombre + "','" + apellido + "','" + cedula + "','" + celular +"','"
+            + email + "','" + saldo + "')";
+    
+    try {
+        Statement st = con.getConnection().createStatement();
+        st.executeUpdate(sql);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        finally{
+            con.desconectar();
+        }
+    
+    }
+
+
+}
+
+
+
+
+
+
