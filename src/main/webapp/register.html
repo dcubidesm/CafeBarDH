@@ -16,11 +16,11 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script src="js/index.js"></script>
         <link href="css/index.css" rel="stylesheet">
-        <title>Registro - Restaurante</title>
+        <title>Registro - Restaurante DH</title>
     </head>
     <body>
         <nav class="navbar navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">Crear cuenta - Restaurante</a>
+            <a class="navbar-brand" href="index.html">Crear cuenta - Restaurante DH</a>
         </nav>
         <main class="p-4 d-flex justify-content-center">
             <div class="card sizeDiv">
@@ -46,7 +46,15 @@
                         </div>
                         <div class="form-group">
                             <label for="input-apellidos">Apellidos</label>
-                            <input type="text" class="form-control" id="input-apellidos" placeholder="Apellidos" required>
+                            <input type="text" class="form-control" id="input-apellido" placeholder="Apellidos" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-apellidos">Cedula</label>
+                            <input type="text" class="form-control" id="input-cedula" placeholder="Cedula" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-apellidos">Celular</label>
+                            <input type="text" class="form-control" id="input-celular" placeholder="Celular" required>
                         </div>
                         <div class="form-group">
                             <label for="input-email">Email</label>
@@ -56,12 +64,12 @@
                             <label for="input-saldo">Saldo</label>
                             <input type="number" class="form-control" id="input-saldo" placeholder="0" min="0" max="10000" value="0" required>
                         </div>
-                        <div class="form-group">
+                        <!--<div class="form-group">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="input-premium">
                                 <label class="form-check-label" for="input-premium">Premium</label>
                             </div>
-                        </div>
+                        </div> -->
                         <input type="submit" class="btn btn-primary" id="register-btn" value="Registrar usuario" />
                     </form>
                     <div id="register-error" class="alert alert-danger d-none" role="alert"></div>
@@ -71,3 +79,4 @@
         </main>
     </body>
 </html>
+
