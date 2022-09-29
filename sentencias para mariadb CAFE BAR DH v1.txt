@@ -1,56 +1,56 @@
-CREATE DATABASE if NOT EXISTS cafe_bar_dh
+CREATE DATABASE if NOT EXISTS cafe_bar
 
-USE cafe_bar_dh;
-
-
-CREATE TABLE if NOT EXISTS mesa(
-id INT (10) NOT NULL,
+USE cafe_bar;
+CREATE TABLE if NOT EXISTS mesa (
+id INT (11) NOT NULL,
+mesaNumero VARCHAR (100) DEFAULT NULL,
 evento VARCHAR (100) DEFAULT NULL,
-horario VARCHAR (100) DEFAULT NULL,
-capacidad VARCHAR (100) DEFAULT NULL,
-reserva INT (11) DEFAULT NULL,
+mesero VARCHAR (100) DEFAULT NULL,
+reservasDisponibles INT (11) DEFAULT NULL,
+novedad TINYINT (1) DEFAULT NULL,
 PRIMARY KEY (id)
 )engine=INNODB default charset=latin1;
 
-
-USE cafe_bar_dh;
+USE cafe_bar;
 CREATE TABLE if NOT EXISTS usuario (
 username VARCHAR (100) NOT NULL,
 contrasena VARCHAR (100) DEFAULT NULL,
-nombre VARCHAR (100) DEFAULT NULL,
-apellido VARCHAR (100) DEFAULT NULL,
-cedula VARCHAR (11) DEFAULT NULL,
-celular VARCHAR (100) DEFAULT NULL,
+nombreCompleto VARCHAR (100) DEFAULT NULL,
+cedula VARCHAR (100) DEFAULT NULL,
 email VARCHAR (100) DEFAULT NULL,
-saldo DOUBLE(22,2) DEFAULT NULL,
+presupuesto DOUBLE (22,2) DEFAULT NULL,
+premium TINYINT (1) DEFAULT NULL,
 PRIMARY KEY (username)
 )engine=INNODB default charset=latin1;
 
-
-USE cafe_bar_dh;
-CREATE TABLE IF NOT EXISTS alquiler(	
-id INT (10) NOT NULL,
-username VARCHAR (100) NOT NULL,
-fecha DATETIME NOT NULL,
-PRIMARY KEY (id,username,fecha) USING BTREE,
-KEY FK_usuario(username),
-CONSTRAINT FK_mesa FOREIGN KEY (id) REFERENCES mesa(id),
-CONSTRAINT FK_usuario FOREIGN KEY (username) REFERENCES usuario(username)
+USE cafe_bar;
+CREATE TABLE IF NOT EXISTS alquiler(
+	id INT(11) NOT NULL,
+	username VARCHAR(100) NOT NULL,
+	fecha DATETIME NOT NULL,
+	PRIMARY KEY (id, username, fecha) USING BTREE,
+	KEY FK_usuario(username),
+	CONSTRAINT FK_mesa FOREIGN KEY (id) REFERENCES mesa(id),
+	CONSTRAINT FK_usuario FOREIGN KEY (username) REFERENCES usuario(username)
 )engine=InnoDB default charset=latin1;
 
-INSERT INTO usuario (username, contrasena, nombre, apellido, cedula, celular, email, saldo) VALUES
-('Sandra45','1234','Sandra','Gomez','1032695694',3168956325,'sandrag09@hotmail.com',2000)
+USE cafe_bar;
+INSERT INTO mesa (id, mesaNumero, evento, mesero, reservasDisponibles, novedad) VALUES
+(1, "1-2", "pareja","Sergio" , 5,0),
+(2, "2-5", "familiar","Diego" , 2,0),
+(3, "5-7",  "grupos", "Andrea", 2,5),
+(4, "8 o mas","total","team",1,0)
+(5,"11-12","Cumpleaños","Sofia",4,0),
+(6,"13","Pareja","Diego",3,0),
+(7,"14","Unitario","Sergio",2,0),
+(8,"15-17","Grupal","Sergio",5,0),
+(9,"18-21","Cumpleaños","Andrea",4,1),
+(10,"21-22","Pareja","Diego",1,1),
+(11,"23-25","Grupal","Sofia",3,1);
 
-INSERT INTO mesa(id, evento, horario,capacidad, reserva) VALUES
-(1,'Familiar','12:00pm - 02:00pm','4',3),
-(2,'Familiar','02:00pm - 04:00pm','4',2),
-(3,'Familiar','04:00pm - 06:00pm','6',1),
-(4,'Cumpleaños','08:00pm - 11:00pm','10',2),
-(5,'Cumpleaños','05:00pm - 08:00pm','10',1),
-(6,'Aniversario','09:00pm - 10:30pm','2',1),
-(7,'Soltero','12:00pm - 01:00pm','2',2)
 
-INSERT INTO alquiler (id, username, fecha) VALUES
-(1,'Sandra45','2020-02-14')
+USE cafe_bar;
+INSERT INTO usuario (username, contrasena, nombreCompleto, cedula, email, presupuesto,premium) VALUES
+("prueba1", "123", "prueba pruebas","123456789" , "p@p",5000,1);
 
-Select * from alquiler;
+Select * from mesa;
