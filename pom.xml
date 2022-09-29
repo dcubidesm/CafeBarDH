@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cts</groupId>
-    <artifactId>CafeBarDH</artifactId>
+    <artifactId>WebCafeBar</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
 
-    <name>CafeBarDH</name>
+    <name>WebCafeBar</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
