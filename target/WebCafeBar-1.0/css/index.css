@@ -1,0 +1,141 @@
+body {
+    background-color: #C9A26C;
+}
+.body-img{
+    background-image: url(../img/img12.jpg);
+    width: 100%;
+    height: 500px;
+    position: relative;
+    margin-top: 80px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.body-img-2{
+    background-image: url(../img/img12.jpg);
+    width: 100%;
+    height: 1200px;
+    position: relative;
+    margin-top: 80px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.bg-login-image{
+    background: url("../img/img22.jpg");
+    background-position: center;
+    background-size: cover;
+    border: 10px;
+}
+
+.bg-register-image{
+    background: url("../img/img22.jpg");
+    background-position: center;
+    background-size: cover;
+    border: 10px;
+    
+    
+}
+
+.us-login-image{
+    background: url("../img/hombre.png");
+    background-position: center;
+    background-size: cover;
+    border: 10px;
+    width: 90px;
+    height: 90px;
+    margin:auto;
+    display:block;
+}
+
+.us-creation-image{
+    background: url("../img/creation-user.png");
+    background-position: center;
+    background-size: cover;
+    border: 10px;
+    width: 90px;
+    height: 90px;
+    margin:auto;
+    display:block;
+}
+
+/*Titulo de Bienvenida*/
+.h4{
+    background-position: center;
+    background-color:transparent!important;
+    font-size: 30px!important;
+    line-height: 20px!important;
+    font-family: Comic Sans MS;
+    color: #804000;
+    text-align:center;
+    margin:auto;
+    display:block;
+}
+/*URL, Registro Cliente Nuevo*/
+.h6{
+    background-position: center;
+    background: #C9A26C;
+    font-size: 20px!important;
+    line-height: 20px!important;
+    font-family: Comic Sans MS;
+    color: #804000;
+}
+.h6:hover{
+   color:#f8f9fa;
+}
+/*Boton Entrar*/
+.btn-block{
+    font-family: Comic Sans MS;
+    color: #fff;
+    background-color: #804000;
+    margin:auto;
+    display:block;
+}
+
+/*Container superior*/
+.container {
+    float: center;
+    padding: 12px;
+    text-align: left;
+    font-family: Comic Sans MS;
+
+}
+
+/*Container interior*/
+.card{
+    background-color: #C9A26C;
+    border: 10px;
+    font-family: Comic Sans MS ;
+}
+
+.form-login{
+    align-items: center;
+    margin:auto;
+    display:block;
+}
+
+/*Caja de Usuario y Contraseña*/
+.form-group{
+    border-bottom: 2px solid #804000!important;
+    font-family: Comic Sans MS ;
+    margin-bottom: 10px;
+}
+
+/*Usuario y Contraseña*/
+form-control{
+    border-bottom: 2px solid #804000!important;
+    font-family: Comic Sans MS;
+}
+
+
+.sizeDiv{
+    width: 9vw;
+}
+
+.btn{
+    background-color: #804000;
+    border-bottom: 0px solid #804000!important;
+    }
+
